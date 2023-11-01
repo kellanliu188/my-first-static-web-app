@@ -42,8 +42,8 @@
         }
       ]
     },
-    "department": {
-      "source": "department",
+    "department_college": {
+      "source": "department_college",
       "permissions": [
         {
           "actions": [

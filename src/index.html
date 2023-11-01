@@ -33,11 +33,11 @@
     }
 
     async function get() {
-      const id = 1;
-      const endpoint = `/data-api/rest/department/department_id`;
-      const response = await fetch(`${endpoint}/${id}`);
+      const endpoint = `/data-api/rest/department_college`;
+      const response = await fetch(endpoint);
       const result = await response.json();
       console.table(result.value);
+      console.log(result);
     }
   </script>
 </body>
