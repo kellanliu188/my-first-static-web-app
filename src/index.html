@@ -18,11 +18,45 @@
   <div>
     <button id="list" onclick="list()">List</button>
     <button id="get" onclick="get()">Get</button>
+    <button id="update" onclick="std_retrieval()">Retrieve Student</button>
+
     <button id="update" onclick="update()">Update</button>
     <button id="create" onclick="create()">Create</button>
     <button id="delete" onclick="del()">Delete</button>
   </div>
   <script>
+
+    async function std_retrieval() {
+
+      stu_id = 1;
+      const sql_query = `
+        query getById($id: Int!) {
+        person_by_pk(Id: $stu_id) {
+          Id
+          first_name
+        }
+      }`;
+
+      const query = {
+        query: sql_query,
+        variables: {
+          id: id,
+          },
+        };
+
+      const endpoint = '/data-api/rest/Student';
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify(query),
+      });
+      const result = await response.json();
+      console.log(result);
+      console.log("seeing student 1 data");
+
+
+    }
+
     async function list() {
       const endpoint = '/data-api/rest/Degree';
       const response = await fetch(endpoint);
@@ -39,6 +73,9 @@
       console.table(result.value);
       console.log(result);
     }
+
+
+    
   </script>
 </body>
 
