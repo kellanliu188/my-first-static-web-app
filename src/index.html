@@ -42,10 +42,11 @@
       const query = {
         query: gql,
         variables: {
-          id: id,
+          degree_id: id,
           },
         };
 
+      console.log(JSON.stringify(query));
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"}, 
