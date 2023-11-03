@@ -33,6 +33,9 @@
   "entities": {
     "Degree": {
       "source": "degree",
+      "rest": {
+        "path": "degree"
+      },
       "permissions": [
         {
           "actions": [
