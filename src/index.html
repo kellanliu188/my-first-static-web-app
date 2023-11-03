@@ -32,7 +32,7 @@
       
       const gql = `
         query getById($degree_id: Int!) {
-        degree_by_pk(Id: $degree_id) {
+        degree_by_pk(degree_id: $degree_id) {
           student_key
           first_name
         }
