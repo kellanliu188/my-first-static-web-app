@@ -27,15 +27,13 @@
   <script>
 
     async function retrieve() {
-      const endpoint = '/data-api/rest/degree';
+      //const endpoint = '/data-api/rest/degree';
       const degree_id = 1;
-      
+
       const gql = `
         query getById($degree_id: Int!) {
         degree_by_pk(degree_id: $degree_id) {
-          student_key
-          first_name
-          last_name
+            degree_name
         }
       }`;
 
@@ -43,13 +41,13 @@
         query: gql,
         variables: {
           degree_id: degree_id,
-          },
-        };
+        },
+      };
 
       console.log(JSON.stringify(query));
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: {"Content-Type": "application/json"}, 
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(query),
       });
 
@@ -78,7 +76,7 @@
     }
 
 
-    
+
   </script>
 </body>
 
