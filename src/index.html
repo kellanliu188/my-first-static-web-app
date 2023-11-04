@@ -43,7 +43,7 @@
           degree_id: degree_id,
         },
       };
-
+      const endpoint = "/data-api/graphql";
       console.log(JSON.stringify(query));
       const response = await fetch(endpoint, {
         method: "POST",
