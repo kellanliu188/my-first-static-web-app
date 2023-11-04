@@ -31,7 +31,7 @@
     }
   },
   "entities": {
-    "Degree": {
+    "degree": {
       "source": "degree",
       "rest": {
         "path": "degree"
