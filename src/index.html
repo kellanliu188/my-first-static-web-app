@@ -28,11 +28,11 @@
 
     async function retrieve() {
       const endpoint = '/data-api/rest/degree';
-      const id = 1;
+      const degree_id = 1;
       
       const gql = `
-        query getById($id: Int!) {
-        degree_by_pk(id: $id) {
+        query getById($degree_id: Int!) {
+        degree_by_pk(degree_id: $degree_id) {
           student_key
           first_name
           last_name
@@ -42,7 +42,7 @@
       const query = {
         query: gql,
         variables: {
-          degree_id: id,
+          degree_id: degree_id,
           },
         };
 
