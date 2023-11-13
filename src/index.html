@@ -23,7 +23,6 @@
     <button id="update" onclick="update()">Update</button>
     <button id="create" onclick="create()">Create</button>
     <button id="delete" onclick="del()">Delete</button>
-    <button id="course" onclick="getCourseData()">Get Course Data</button>
 
 
     <label for "semesters">Choose a semester:</label>
@@ -49,7 +48,7 @@
     async function selectSem(semester_id) {
       const gql = `
       query getById($semester_id: Int!) {
-        sem_by_pk(semester_id: $semester_id) {
+        degree_by_pk(semester_id: $semester_id) {
           semester_id
         }
       }`;
