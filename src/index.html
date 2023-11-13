@@ -23,6 +23,7 @@
     <button id="update" onclick="update()">Update</button>
     <button id="create" onclick="create()">Create</button>
     <button id="delete" onclick="del()">Delete</button>
+    <button id="course" onclick="getCourseData()">Get Course Data</button>
 
 
     <label for "semesters">Choose a semester:</label>
@@ -38,7 +39,7 @@
     async function selectSem(semester_id) {
       const gql = `
       query getById($semester_id: Int!) {
-        degree_by_pk(semester_id: $semester_id) {
+        sem_by_pk(semester_id: $semester_id) {
           semester_id
         }
       }`;
@@ -59,8 +60,17 @@
 
       const result = await response.json();
       console.log(result);
-      console.log("get data for specific courses", result.data.degree_by_pk);
+      console.log("get data for specific courses", result.data.sem_by_pk);
+    }
 
+
+    async function getCourseData() {
+      const endpoint = '/data-api/rest/degree';
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      console.table(data.value)
+      console.log(data);
+      console.log('test');
 
     }
 
