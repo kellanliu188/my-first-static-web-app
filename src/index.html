@@ -35,6 +35,16 @@
   </div>
   <script>
 
+
+    async function getCourseData() {
+      const endpoint = '/data-api/rest/course_data';
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      console.table(data.value)
+      console.log(data);
+      console.log('get course data');
+    }
+
     async function selectSem(semester_id) {
       const gql = `
       query getById($semester_id: Int!) {
@@ -59,10 +69,18 @@
 
       const result = await response.json();
       console.log(result);
+<<<<<<< HEAD
+      console.log("get data for specific semester", result.data.sem_by_pk);
+    }
+
+
+   
+=======
       console.log("get data for specific courses", result.data.degree_by_pk);
 
 
     }
+>>>>>>> parent of 5cf7da6 (get course data)
 
     async function retrieve() {
       //const endpoint = '/data-api/rest/degree';
@@ -89,6 +107,7 @@
         body: JSON.stringify(query),
       });
 
+      console.log(response);
       const result = await response.json();
       console.log(result);
       console.log("seeing student 1 data", result.data.degree_by_pk);
