@@ -44,7 +44,7 @@
 
       const gql = `
         query getById($class_id: Int!) {
-        class_by_pk(class_id: $class_id) {
+          course_data_by_pk(class_id: $class_id) {
           building_name, 
           course_description,
           room_num,
@@ -69,7 +69,7 @@
       console.log(response);
       const result = await response.json();
       console.log(result);
-      console.log("seeing class 1 data", data.class_by_pk);
+      console.log("seeing class 1 data", data.course_data_by_pk);
     }
 
 
