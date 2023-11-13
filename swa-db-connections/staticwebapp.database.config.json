@@ -56,17 +56,16 @@
         }
       ]
     },
- 
-  "course_data": {
-    "source": "course_data",
-    "permissions": [
-      {
-        "actions": [
-          "*"
-        ],
-        "role": "anonymous"
-      }
-    ]
+    "course_data": {
+      "source": "course_data",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "role": "anonymous"
+        }
+      ]
+    }
   }
-}
 }
