@@ -23,8 +23,21 @@
     <button id="update" onclick="update()">Update</button>
     <button id="create" onclick="create()">Create</button>
     <button id="delete" onclick="del()">Delete</button>
+    <button id="course" onclick="getCourseData()">Get Course Data</button>
+
   </div>
   <script>
+
+    async function getCourseData() {
+      const endpoint = '/data-api/rest/course_data';
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      console.table(data.value)
+      console.log(data);
+      console.log('Getting course data');
+    }
+
+    
 
     async function retrieve() {
       //const endpoint = '/data-api/rest/degree';
