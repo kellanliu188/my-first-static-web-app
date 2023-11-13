@@ -37,7 +37,41 @@
       console.log('Getting course data');
     }
 
-    
+
+    async function retrieveClass() {
+      //const endpoint = '/data-api/rest/degree';
+      const class_id = 1;
+
+      const gql = `
+        query getById($class_id: Int!) {
+        class_by_pk(class_id: $class_id) {
+          building_name, 
+          course_description,
+          room_num,
+          semester_name
+        }
+      }`;
+
+      const query = {
+        query: gql,
+        variables: {
+          class_id: class_id,
+        },
+      };
+      const endpoint = "/data-api/graphql";
+      console.log(JSON.stringify(query));
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(query),
+      });
+
+      console.log(response);
+      const result = await response.json();
+      console.log(result);
+      console.log("seeing class 1 data", data.class_by_pk);
+    }
+
 
     async function retrieve() {
       //const endpoint = '/data-api/rest/degree';
@@ -68,8 +102,6 @@
       const result = await response.json();
       console.log(result);
       console.log("seeing student 1 data", data.degree_by_pk);
-
-
     }
 
     async function list() {

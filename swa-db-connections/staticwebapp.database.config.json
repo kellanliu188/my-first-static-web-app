@@ -31,6 +31,17 @@
     }
   },
   "entities": {
+    "course_data": {
+      "source": "course_data",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "role": "anonymous"
+        }
+      ]
+    },
     "degree": {
       "source": "degree",
       "rest": {
@@ -47,17 +58,6 @@
     },
     "department_college": {
       "source": "department_college",
-      "permissions": [
-        {
-          "actions": [
-            "*"
-          ],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "course_data": {
-      "source": "course_data",
       "permissions": [
         {
           "actions": [
