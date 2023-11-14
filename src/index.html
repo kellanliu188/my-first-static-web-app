@@ -16,13 +16,13 @@
     Open the console in the browser developer tools to see the API responses.
   </blockquote>
   <div>
-    <button id="list" onclick="list()">List</button>
-    <button id="get" onclick="get()">Get</button>
-    <button id="retrieve" onclick="retrieve()">Retrieve</button>
+    <button id="list" onclick="list()">Get Degree Data</button>
+    <button id="get" onclick="get()">Get Dept Data</button>
+    <button id="retrieve" onclick="retrieve()">Get Class 1</button>
 
-    <button id="update" onclick="update()">Update</button>
-    <button id="create" onclick="create()">Create</button>
-    <button id="delete" onclick="del()">Delete</button>
+    <!-- <button id="update" onclick="update()">Update</button> -->
+    <!-- <button id="create" onclick="create()">Create</button> -->
+    <!-- <button id="delete" onclick="del()">Delete</button> -->
     <button id="course" onclick="getCourseData()">Get Course Data</button>
 
     <select name = "acaGroups" id = "acaGroups" onchange="academicGroup(this.value)">
@@ -35,33 +35,35 @@
   <script>
 
     async function academicGroup(department_id) {
-      const gql = `
-        query getById($department_id: Int!) {
-          course_data_by_pk(department_id: $department_id) {
-          course_name, 
-          course_description,
-          semester_name
-        }
-      }`;
+      console.log(department_id);
+      
+    // const gql = `
+    //         query getById($department_id: Int!) {
+    //           course_data_by_pk(department_id: $department_id) {
+    //           course_name, 
+    //           course_description,
+    //           semester_name
+    //         }
+    //       }`;
 
-      const query = {
-        query: gql,
-        variables: {
-          class_id: class_id,
-        },
-      };
-      const endpoint = "/data-api/graphql";
-      console.log(JSON.stringify(query));
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query),
-      });
+    //       const query = {
+    //         query: gql,
+    //         variables: {
+    //           class_id: class_id,
+    //         },
+    //       };
+    //       const endpoint = "/data-api/graphql";
+    //       console.log(JSON.stringify(query));
+    //       const response = await fetch(endpoint, {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify(query),
+    //       });
 
-      console.log(response);
-      const result = await response.json();
-      console.log(result);
-      console.log("seeing class data for ", department_id, data.course_data_by_pk);
+    //       console.log(response);
+    //       const result = await response.json();
+    //       console.log(result);
+    //       console.log("seeing class data for ", department_id, data.course_data_by_pk);
 
     }
 
@@ -76,7 +78,6 @@
 
 
     async function retrieveClass() {
-      //const endpoint = '/data-api/rest/degree';
       const class_id = 1;
 
       const gql = `
