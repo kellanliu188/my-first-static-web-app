@@ -34,9 +34,9 @@
   </div>
   <script>
 
-    async function academicGroup(department_id) {
-      console.log(department_id);
-      
+    // async function academicGroup(department_id) {
+    //   console.log(department_id);
+
     // const gql = `
     //         query getById($department_id: Int!) {
     //           course_data_by_pk(department_id: $department_id) {
@@ -65,82 +65,82 @@
     //       console.log(result);
     //       console.log("seeing class data for ", department_id, data.course_data_by_pk);
 
-    }
+    //}
 
-    async function getCourseData() {
-      const endpoint = '/data-api/rest/course_data';
-      const response = await fetch(endpoint);
-      const data = await response.json();
-      console.table(data.value)
-      console.log(data);
-      console.log('Getting course data');
-    }
-
-
-    async function retrieveClass() {
-      const class_id = 1;
-
-      const gql = `
-        query getById($class_id: Int!) {
-          course_data_by_pk(class_id: $class_id) {
-          building_name, 
-          course_description,
-          room_num,
-          semester_name
-        }
-      }`;
-
-      const query = {
-        query: gql,
-        variables: {
-          class_id: class_id,
-        },
-      };
-      const endpoint = "/data-api/graphql";
-      console.log(JSON.stringify(query));
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query),
-      });
-
-      console.log(response);
-      const result = await response.json();
-      console.log(result);
-      console.log("seeing class 1 data", data.course_data_by_pk);
-    }
+    // async function getCourseData() {
+    //   const endpoint = '/data-api/rest/course_data';
+    //   const response = await fetch(endpoint);
+    //   const data = await response.json();
+    //   console.table(data.value)
+    //   console.log(data);
+    //   console.log('Getting course data');
+    // }
 
 
-    async function retrieve() {
-      //const endpoint = '/data-api/rest/degree';
-      const degree_id = 1;
+    // async function retrieveClass() {
+    //   const class_id = 1;
 
-      const gql = `
-        query getById($degree_id: Int!) {
-        degree_by_pk(degree_id: $degree_id) {
-            degree_name
-        }
-      }`;
+    //   const gql = `
+    //     query getById($class_id: Int!) {
+    //       course_data_by_pk(class_id: $class_id) {
+    //       building_name, 
+    //       course_description,
+    //       room_num,
+    //       semester_name
+    //     }
+    //   }`;
 
-      const query = {
-        query: gql,
-        variables: {
-          degree_id: degree_id,
-        },
-      };
-      const endpoint = "/data-api/graphql";
-      console.log(JSON.stringify(query));
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query),
-      });
+    //   const query = {
+    //     query: gql,
+    //     variables: {
+    //       class_id: class_id,
+    //     },
+    //   };
+    //   const endpoint = "/data-api/graphql";
+    //   console.log(JSON.stringify(query));
+    //   const response = await fetch(endpoint, {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(query),
+    //   });
 
-      console.log(response);
-      const result = await response.json();
-      console.log(result);
-      console.log("seeing student 1 data", data.degree_by_pk);
-    }
+    //   console.log(response);
+    //   const result = await response.json();
+    //   console.log(result);
+    //   console.log("seeing class 1 data", data.course_data_by_pk);
+    // }
+
+
+    // async function retrieve() {
+    //   //const endpoint = '/data-api/rest/degree';
+    //   const degree_id = 1;
+
+    //   const gql = `
+    //     query getById($degree_id: Int!) {
+    //     degree_by_pk(degree_id: $degree_id) {
+    //         degree_name
+    //     }
+    //   }`;
+
+    //   const query = {
+    //     query: gql,
+    //     variables: {
+    //       degree_id: degree_id,
+    //     },
+    //   };
+    //   const endpoint = "/data-api/graphql";
+    //   console.log(JSON.stringify(query));
+    //   const response = await fetch(endpoint, {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(query),
+    //   });
+
+    //   console.log(response);
+    //   const result = await response.json();
+    //   console.log(result);
+    //   console.log("seeing student 1 data", data.degree_by_pk);
+    // }
 
     async function list() {
       const endpoint = '/data-api/rest/degree';
@@ -155,11 +155,39 @@
       const endpoint = `/data-api/rest/department_college`;
       const response = await fetch(endpoint);
       const result = await response.json();
-      console.table(result.value);
+      console.log(result.value);
       console.log(result);
     }
 
+    async function retrieve() {
+      const endpoint = `/data-api/rest/course_info?$first=1`;
+      const response = await fetch(endpoint);
+      const result = await response.json();
+      console.log(result.value);
+      console.log(result);
+    }
 
+    // async function retrieve() {
+
+    //   const gql = `
+    //   {
+    //     course_info {
+    //       course_info {
+    //         class_id
+    //         course_name
+    //       }
+    //     }
+    //   }`;
+
+    //   const endpoint = "http://localhost:4280/data-api/graphql";
+    //   const response = await fetch(endpoint, {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ query: gql })
+    //   });
+    //   const result = await response.json();
+    //   console.log(result);
+    // }
 
   </script>
 </body>

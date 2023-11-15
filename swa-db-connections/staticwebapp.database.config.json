@@ -31,8 +31,8 @@
     }
   },
   "entities": {
-    "course_data": {
-      "source": "course_data",
+    "course_info": {
+      "source": "course_info",
       "permissions": [
         {
           "actions": [
@@ -66,6 +66,34 @@
           "role": "anonymous"
         }
       ]
+    },
+    "student": {
+      "source": "student",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "role": "anonymous"
+        }
+      ]
+    },
+    "degree_student": {
+      "source": "degree",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "role": "anonymous"
+        }
+      ],
+      "relationships": {
+        "student": {
+          "cardinality": "one",
+          "target.entity": "student"
+        }
+      }
     }
   }
 }
