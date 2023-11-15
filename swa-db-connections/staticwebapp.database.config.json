@@ -31,8 +31,8 @@
     }
   },
   "entities": {
-    "course_info": {
-      "source": "course_info",
+    "class_data": {
+      "source": "class_data",
       "permissions": [
         {
           "actions": [

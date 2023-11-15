@@ -160,7 +160,7 @@
     }
 
     async function retrieve() {
-      const endpoint = `/data-api/rest/course_info?$first=1`;
+      const endpoint = `/data-api/rest/class_data`;
       const response = await fetch(endpoint);
       const result = await response.json();
       console.log(result.value);
