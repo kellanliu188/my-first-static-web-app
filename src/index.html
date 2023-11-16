@@ -31,8 +31,20 @@
       <option value = "3">Statistics and Data Science</option>
     </select> -->
 
+    <p id = "courses"></p>
   </div>
   <script>
+
+    var course = document.getElementById('courses');
+    async function retrieveCourseData() {
+        const endpoint = `/data-api/rest/class_data`;
+        const response = await fetch(endpoint);
+        const result = await response.json();
+        console.log(result.value);
+        //console.log(result);
+        courses.text(result);
+        return result.value;
+      }
 
     // async function academicGroup(department_id) {
     //   console.log(department_id);

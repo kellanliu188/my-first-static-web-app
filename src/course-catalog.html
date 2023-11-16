@@ -15,17 +15,17 @@
 </body>
 
 <script>
-  var course = document.getElementById('courses');
-    async function retrieveCourseData() {
-        const endpoint = `/data-api/rest/class_data`;
-        const response = await fetch(endpoint);
-        const result = await response.json();
-        console.log(result.value);
-        //console.log(result);
-        courses.text(result);
-        return result.value;
-      }
+  
 
-    
+  var course = document.getElementById('courses');
+  async function retrieveCourseData() {
+      const endpoint = `/data-api/rest/class_data`;
+      const response = await fetch(endpoint);
+      const result = await response.json();
+      console.log(result.value);
+      //console.log(result);
+      courses.text(result);
+      return result.value;
+    }
 </script>
 </html>
