@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+<p id = "courses"></p>
+</body>
+
+<script>
+  var course = document.getElementById('courses');
+    async function retrieveCourseData() {
+        const endpoint = `/data-api/rest/class_data`;
+        const response = await fetch(endpoint);
+        const result = await response.json();
+        console.log(result.value);
+        //console.log(result);
+        courses.text(result);
+        return result.value;
+      }
+
+    
+</script>
+</html>
