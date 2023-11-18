@@ -34,38 +34,21 @@
 
     <button id="course" onclick="retrieveCourseData()">Display Course Data</button>
 
-    <p id = "courses"></p>
-    
+    <p id="courses"></p>
+
   </div>
   <script>
     var courses = document.getElementById('courses');
     async function retrieveCourseData() {
-        const endpoint = `/data-api/rest/class_data`;
-        const response = await fetch(endpoint);
-        const result = await response.json();
-        console.log(result.value);
-        //console.log(result);
-        document.getElementById('courses').innerHTML = result.value;
-        return result.value;
-      }
-
-    
-    function convertCourses(courses) {
-      const coursesFormatted = courses.map(item => ({
-        name: item.course_name,
-        subjectCode: item.department_intital,
-        workload: {
-          hours: item.group_proj_workload,
-          lecture: item.lecture_workload,
-          assignment: item.indiv_assign_workload,
-          project: item.group_proj_workload,
-        },
-        offered: item.semester_name
-      }));
-      console.log(coursesFormatted);
+      const endpoint = `/data-api/rest/class_data`;
+      const response = await fetch(endpoint);
+      const result = await response.json();
+      console.log(result.value);
+      //console.log(result);
+      document.getElementById('courses').innerHTML = result.value;
+      return result.value;
     }
-    var courses = retrieveCourseData()
-    convertCourses(courses);
+
     // async function academicGroup(department_id) {
     //   console.log(department_id);
 
